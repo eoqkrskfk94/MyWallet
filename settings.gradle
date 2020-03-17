@@ -1,0 +1,2 @@
+rootProject.name='Wallet1000'
+include ':app'
