@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="100dp"
     android:gravity="center|top"
     android:orientation="vertical"
     tools:context=".MainActivity">
@@ -40,5 +39,15 @@
         app:srcCompat="?android:attr/textSelectHandleLeft"
         tools:layout_editor_absoluteX="173dp"
         tools:layout_editor_absoluteY="384dp" />
+
+    <TextView
+        android:id="@+id/totalMoney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="TextView"
+        android:textSize="24sp"
+        android:visibility="visible"
+        tools:visibility="visible" />
 
 </LinearLayout>
