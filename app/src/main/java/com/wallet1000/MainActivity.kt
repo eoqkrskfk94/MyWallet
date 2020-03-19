@@ -60,6 +60,7 @@ class MainActivity : AppCompatActivity() {
                 db.insertData(user)
             }
             money = 0
+            total.text = "$money"
         }
     }
 
