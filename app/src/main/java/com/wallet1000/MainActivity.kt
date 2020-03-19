@@ -12,6 +12,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val context = this
+
         var money = 0
 
         val moneyBtn1 = findViewById<ImageButton>(R.id.button10000)
@@ -22,6 +24,11 @@ class MainActivity : AppCompatActivity() {
         moneyBtn1.setOnClickListener {
             money += 10000
             total.text = "$money"
+            if (money.toString().length > 0){
+                var user = User(1, money)
+                var db = DatabaseHandler(context)
+                db.insertData(user)
+            }
         }
 
         moneyBtn2.setOnClickListener {

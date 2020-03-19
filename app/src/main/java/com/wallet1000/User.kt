@@ -3,11 +3,14 @@ package com.wallet1000
 class User {
 
     var id: Int = 0
-    var name: String = ""
     var money: Int = 0
 
-    constructor(name:String, money:Int){
-        this.name = name
+    constructor(id:Int, money:Int){
+        this.id = id
         this.money = money
+    }
+
+    constructor(){
+
     }
 }
