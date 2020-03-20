@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentTransaction
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
+import com.wallet1000.Fragments.MainFragment
 //import sun.jvm.hotspot.utilities.IntArray
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -15,16 +17,23 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        lateinit var mainFragment: MainFragment
 
         val context = this
-
         var money = 0
-
         val bottomNavigation = findViewById<ChipNavigationBar>(R.id.menu_bar)
+
+        mainFragment = MainFragment.newInstance()
+
+
+        supportFragmentManager.beginTransaction().add(R.id.container, mainFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
 
         bottomNavigation.setOnItemSelectedListener { id ->
             val option = when(id) {
-                R.id.home
+                R.id.home -> {
+                    supportFragmentManager.beginTransaction().replace(R.id.container, mainFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
+                }
+                else -> { }
             }
         }
 //        val moneyBtn1 = findViewById<ImageButton>(R.id.button10000)
