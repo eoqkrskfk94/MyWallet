@@ -1,104 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout"
+    android:id="@+id/RelativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="bottom"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <ImageButton
-        android:id="@+id/button10000"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:background="@null"
-        app:srcCompat="?android:attr/textSelectHandleLeft"
-        tools:layout_conversion_absoluteHeight="80dp"
-        tools:layout_conversion_absoluteWidth="80dp"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="83dp" />
 
-    <ImageButton
-        android:id="@+id/button1000"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:background="@null"
-        app:srcCompat="?android:attr/textSelectHandleLeft"
-        tools:layout_conversion_absoluteHeight="80dp"
-        tools:layout_conversion_absoluteWidth="80dp"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="203dp" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/menu_bar"/>
 
-    <ImageButton
-        android:id="@+id/button100"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:background="@null"
-        app:srcCompat="?android:attr/textSelectHandleLeft"
-        tools:layout_conversion_absoluteHeight="80dp"
-        tools:layout_conversion_absoluteWidth="80dp"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="324dp" />
-
-    <ImageButton
-        android:id="@+id/saveButton"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:background="@null"
-        app:srcCompat="?android:attr/textSelectHandleLeft"
-        tools:layout_conversion_absoluteHeight="80dp"
-        tools:layout_conversion_absoluteWidth="80dp"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="444dp" />
-
-    <TextView
-        android:id="@+id/totalMoney"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:text="TextView"
-        android:textSize="24sp"
-        android:visibility="visible"
-        tools:layout_conversion_absoluteHeight="32dp"
-        tools:layout_conversion_absoluteWidth="98dp"
-        tools:layout_editor_absoluteX="157dp"
-        tools:layout_editor_absoluteY="544dp"
-        tools:visibility="visible" />
-
-    <!-- layout.xml -->
-    <TextView
-        android:id="@+id/CurrentMoney"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:text="TextView"
-        android:textSize="24sp"
-        android:visibility="visible"
-        tools:layout_conversion_absoluteHeight="32dp"
-        tools:layout_conversion_absoluteWidth="98dp"
-        tools:layout_editor_absoluteX="157dp"
-        tools:layout_editor_absoluteY="577dp"
-        tools:visibility="visible" />
 
     <com.ismaeldivita.chipnavigation.ChipNavigationBar
         android:id="@+id/menu_bar"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.5"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom = "true"
         android:background="@color/white"
         app:cnb_menuResource="@menu/bottom_menu"
         tools:layout_conversion_absoluteHeight="52dp"
@@ -106,4 +27,4 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="619dp" />
 
-</LinearLayout>
+</RelativeLayout>
