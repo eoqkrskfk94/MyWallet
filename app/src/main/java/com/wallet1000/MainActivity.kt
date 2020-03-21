@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
 import com.wallet1000.Fragments.MainFragment
+import com.wallet1000.Fragments.MyProfileFragment
 //import sun.jvm.hotspot.utilities.IntArray
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -18,12 +19,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         lateinit var mainFragment: MainFragment
+        lateinit var myProfileFragment: MyProfileFragment
 
         val context = this
-        var money = 0
+
         val bottomNavigation = findViewById<ChipNavigationBar>(R.id.menu_bar)
 
         mainFragment = MainFragment.newInstance()
+        myProfileFragment = MyProfileFragment.newInstance()
+
 
 
         supportFragmentManager.beginTransaction().add(R.id.container, mainFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
@@ -32,6 +36,10 @@ class MainActivity : AppCompatActivity() {
             val option = when(id) {
                 R.id.home -> {
                     supportFragmentManager.beginTransaction().replace(R.id.container, mainFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
+                }
+                R.id.my_profile ->{
+                    supportFragmentManager.beginTransaction().replace(R.id.container, myProfileFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
+
                 }
                 else -> { }
             }
