@@ -1,16 +1,13 @@
 package com.wallet1000
 
 import android.os.Bundle
-import android.widget.ImageButton
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
 import com.wallet1000.Fragments.MainFragment
-import com.wallet1000.Fragments.MyProfileFragment
+import com.wallet1000.Fragments.ProfileFragment
+
 //import sun.jvm.hotspot.utilities.IntArray
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 
 
 class MainActivity : AppCompatActivity() {
@@ -19,14 +16,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         lateinit var mainFragment: MainFragment
-        lateinit var myProfileFragment: MyProfileFragment
+        lateinit var ProfileFragment: ProfileFragment
 
         val context = this
 
         val bottomNavigation = findViewById<ChipNavigationBar>(R.id.menu_bar)
 
         mainFragment = MainFragment.newInstance()
-        myProfileFragment = MyProfileFragment.newInstance()
+        ProfileFragment = ProfileFragment.newInstance()
 
 
 

@@ -8,15 +8,17 @@ import android.view.ViewGroup
 
 import com.wallet1000.R
 
-
-class MainFragment : Fragment() {
+/**
+ * A simple [Fragment] subclass.
+ */
+class ProfileFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
 }
