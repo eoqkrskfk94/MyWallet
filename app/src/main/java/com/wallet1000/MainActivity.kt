@@ -12,30 +12,36 @@ import com.wallet1000.Fragments.ProfileFragment
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var mainFragment: MainFragment
+    lateinit var profileFragment: ProfileFragment
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        lateinit var mainFragment: MainFragment
-        lateinit var ProfileFragment: ProfileFragment
 
-        val context = this
 
         val bottomNavigation = findViewById<ChipNavigationBar>(R.id.menu_bar)
 
-        mainFragment = MainFragment.newInstance()
-        ProfileFragment = ProfileFragment.newInstance()
-
-
-
+        mainFragment = MainFragment()
         supportFragmentManager.beginTransaction().add(R.id.container, mainFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
 
         bottomNavigation.setOnItemSelectedListener { id ->
             val option = when(id) {
                 R.id.home -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.container, mainFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
+                    mainFragment = MainFragment()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.container, mainFragment)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
+
                 }
                 R.id.my_profile ->{
-                    supportFragmentManager.beginTransaction().replace(R.id.container, myProfileFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
+                    profileFragment = ProfileFragment()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.container, profileFragment)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
+
 
                 }
                 else -> { }

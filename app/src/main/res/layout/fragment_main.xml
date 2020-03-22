@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.MainFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageButton
+        android:id="@+id/btn10000"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:background="@null"
+        android:src="?android:attr/textSelectHandle" />
 
-</FrameLayout>
+    <ImageButton
+        android:id="@+id/btn1000"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/btn10000"
+        android:layout_centerHorizontal="true"
+        android:background="@null"
+        android:src="?android:attr/textSelectHandle" />
+
+    <ImageButton
+        android:id="@+id/btn100"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/btn1000"
+        android:layout_centerHorizontal="true"
+        android:background="@null"
+        android:src="?android:attr/textSelectHandle" />
+
+    <ImageButton
+        android:id="@+id/btn_save"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/btn100"
+        android:layout_centerHorizontal="true"
+        android:background="@null"
+        android:src="?android:attr/textSelectHandle" />
+
+    <TextView
+        android:id="@+id/currentMoney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_save"
+        android:layout_centerHorizontal="true"
+        android:text="TextView"
+        android:textSize="24sp" />
+</RelativeLayout>
