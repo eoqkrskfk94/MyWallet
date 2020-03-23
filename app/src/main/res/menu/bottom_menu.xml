@@ -12,14 +12,14 @@
         android:icon="@drawable/ic_activity"
         android:title="MyProfile"
         app:cnb_iconColor="@color/activity"/>
-    <item
-        android:id="@+id/favorites"
-        android:icon="@drawable/ic_heart"
-        android:title="Favorites"
-        app:cnb_iconColor="@color/favorites" />
-    <item
-        android:id="@+id/settings"
-        android:icon="@drawable/ic_settings"
-        android:title="Settings"
-        app:cnb_iconColor="@color/settings" />
+<!--    <item-->
+<!--        android:id="@+id/favorites"-->
+<!--        android:icon="@drawable/ic_heart"-->
+<!--        android:title="Favorites"-->
+<!--        app:cnb_iconColor="@color/favorites" />-->
+<!--    <item-->
+<!--        android:id="@+id/settings"-->
+<!--        android:icon="@drawable/ic_settings"-->
+<!--        android:title="Settings"-->
+<!--        app:cnb_iconColor="@color/settings" />-->
 </menu>

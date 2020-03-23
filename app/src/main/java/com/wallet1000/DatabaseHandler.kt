@@ -51,7 +51,10 @@ class DatabaseHandler(context: Context):SQLiteOpenHelper(context,DATABASE_NAME,n
             do{
                 println("works")
                 var user = User()
+                user.date = result.getString(result.getColumnIndex(COL_DATE))
+                user.time = result.getString(result.getColumnIndex(COL_TIME))
                 user.money = result.getString(result.getColumnIndex(COL_MONEY)).toInt()
+                list.add(user)
 
             }while(result.moveToNext())
         }
