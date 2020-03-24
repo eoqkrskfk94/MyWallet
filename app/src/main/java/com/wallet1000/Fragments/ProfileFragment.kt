@@ -33,8 +33,8 @@ class ProfileFragment : Fragment() {
             val recordslist : ArrayList<User> = db.getRecords(context)
             val adapter = UserAdapter(context, recordslist)
             val display : RecyclerView = view.findViewById(R.id.display_records)
-            display.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false) as RecyclerView.LayoutManager
-            display.adapter
+            display.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false) as RecyclerView.LayoutManager
+            display.adapter = adapter
         }
 
         viewRecords()
