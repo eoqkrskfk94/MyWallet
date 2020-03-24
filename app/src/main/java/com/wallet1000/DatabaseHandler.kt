@@ -2,8 +2,10 @@ package com.wallet1000
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.widget.Toast
 
 val DATABASE_NAME = "MyDB"
 val TABLE_NAME = "User"
@@ -40,6 +42,36 @@ class DatabaseHandler(context: Context):SQLiteOpenHelper(context,DATABASE_NAME,n
         var result = db.insert(TABLE_NAME,null,cv)
 
     }
+
+
+    fun getRecords(context: Context) : ArrayList<User>{
+        val query = "Select * From " + TABLE_NAME
+        val db:SQLiteDatabase = this.readableDatabase
+        val cursor: Cursor = db.rawQuery(query, null)
+        val records = ArrayList<User>()
+
+        if (cursor.count == 0)
+            Toast.makeText(context, "No records found", Toast.LENGTH_SHORT).show()
+        else{
+            while(cursor.moveToNext()){
+                val record = User()
+                record.date = cursor.getString(cursor.getColumnIndex(COL_DATE))
+                record.time = cursor.getString(cursor.getColumnIndex(COL_TIME))
+                record.money = cursor.getInt(cursor.getColumnIndex(COL_MONEY))
+                records.add(record)
+            }
+
+            Toast.makeText(context, "Records found", Toast.LENGTH_SHORT).show()
+        }
+        cursor.close()
+        db.close()
+        return records
+
+    }
+
+
+
+
 
     fun readData() :MutableList<User>{
         var list: MutableList<User> = ArrayList()

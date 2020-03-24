@@ -6,9 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.wallet1000.DatabaseHandler
 
 import com.wallet1000.R
+import com.wallet1000.User
+import com.wallet1000.UserAdapter
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : Fragment() {
@@ -24,10 +29,26 @@ class ProfileFragment : Fragment() {
         val context: Context = context!!
         var db = DatabaseHandler(context)
 
-        var data = db.readData()
-        records.text =
+        fun viewRecords(){
+            val recordslist : ArrayList<User> = db.getRecords(context)
+            val adapter = UserAdapter(context, recordslist)
+            val display : RecyclerView = view.findViewById(R.id.display_records)
+            display.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false) as RecyclerView.LayoutManager
+            display.adapter
+        }
+
+        viewRecords()
+
+
+
+
+
+
+
 
 
     }
+
+
 
 }

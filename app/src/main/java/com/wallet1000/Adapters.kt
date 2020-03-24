@@ -8,9 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.records.view.*
 
 
-class UserAdapter(context: Context, val user : ArrayList<User>) : RecyclerView.Adapter<UserAdapter.ViewHolder>(){
+class UserAdapter(context: Context, val record : ArrayList<User>) : RecyclerView.Adapter<UserAdapter.ViewHolder>(){
 
     val context = context
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val txtDate = itemView.date_text
         val txtTime = itemView.time_text
@@ -26,9 +27,14 @@ class UserAdapter(context: Context, val user : ArrayList<User>) : RecyclerView.A
     }
 
     override fun getItemCount(): Int {
+        return record.size
     }
 
     override fun onBindViewHolder(holder: UserAdapter.ViewHolder, position: Int) {
+        val user : User = record[position]
+        holder.txtDate.text = user.date
+        holder.txtTime.text = user.time
+        holder.txtMoney.text = user.money.toString()
     }
 
 }
