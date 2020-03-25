@@ -1,22 +1,25 @@
 package com.wallet1000.Fragments
 
+import android.content.ContentValues
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.wallet1000.DatabaseHandler
+import com.wallet1000.*
 
-import com.wallet1000.R
-import com.wallet1000.User
-import com.wallet1000.UserAdapter
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : Fragment() {
+
+    companion object{
+        lateinit var databaseHandler: DatabaseHandler
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -27,10 +30,10 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val context: Context = context!!
-        var db = DatabaseHandler(context)
+        databaseHandler = DatabaseHandler(context)
 
         fun viewRecords(){
-            val recordslist : ArrayList<User> = db.getRecords(context)
+            val recordslist : ArrayList<User> = databaseHandler.getRecords(context)
             val adapter = UserAdapter(context, recordslist)
             val display : RecyclerView = view.findViewById(R.id.display_records)
             display.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false) as RecyclerView.LayoutManager
@@ -38,12 +41,6 @@ class ProfileFragment : Fragment() {
         }
 
         viewRecords()
-
-
-
-
-
-
 
 
 

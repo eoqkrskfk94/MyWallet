@@ -74,15 +74,5 @@ class MainFragment : Fragment(){
         }
     }
 
-//    override fun onClick(v: View?) {
-//
-//        when (v?.id){
-//            R.id.btn10000 -> {
-//                money += 10000
-//                System.out.println(money)
-//                currentMoney.text = "$money"
-//            }
-//        }
-//    }
 
 }

@@ -1,10 +1,15 @@
 package com.wallet1000
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.wallet1000.Fragments.MainFragment
+import com.wallet1000.Fragments.ProfileFragment
 import kotlinx.android.synthetic.main.records.view.*
 
 
@@ -35,6 +40,25 @@ class UserAdapter(context: Context, val record : ArrayList<User>) : RecyclerView
         holder.txtDate.text = user.date
         holder.txtTime.text = user.time
         holder.txtMoney.text = user.money.toString()
+
+        holder.buttonDelete.setOnClickListener{
+            var alertDialog = AlertDialog.Builder(context)
+                .setTitle("Warning")
+                .setMessage("Are you sure to Delete?")
+                .setPositiveButton("Yes", DialogInterface.OnClickListener{dialog, which ->
+                    if (ProfileFragment.databaseHandler.deleteRecord(user.id)){
+                        record.removeAt(position)
+                        notifyItemRemoved(position)
+                        notifyItemRangeChanged(position,record.size)
+                        Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show()
+                    }
+                    else{
+                        Toast.makeText(context, "Not Deleted", Toast.LENGTH_SHORT).show()
+                    }
+                })
+                .setNegativeButton("No", DialogInterface.OnClickListener{dialog, which -> })
+                .show()
+        }
     }
 
 }

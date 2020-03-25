@@ -5,7 +5,9 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
 import android.widget.Toast
+import java.lang.Exception
 
 val DATABASE_NAME = "MyDB"
 val TABLE_NAME = "User"
@@ -53,12 +55,15 @@ class DatabaseHandler(context: Context):SQLiteOpenHelper(context,DATABASE_NAME,n
         if (cursor.count == 0)
             Toast.makeText(context, "No records found", Toast.LENGTH_SHORT).show()
         else{
-            while(cursor.moveToNext()){
+            cursor.moveToFirst()
+            while(!cursor.isAfterLast()){
                 val record = User()
+                record.id = cursor.getInt(cursor.getColumnIndex(COL_ID))
                 record.date = cursor.getString(cursor.getColumnIndex(COL_DATE))
                 record.time = cursor.getString(cursor.getColumnIndex(COL_TIME))
                 record.money = cursor.getInt(cursor.getColumnIndex(COL_MONEY))
                 records.add(record)
+                cursor.moveToNext()
             }
 
             Toast.makeText(context, "Records found", Toast.LENGTH_SHORT).show()
@@ -66,39 +71,23 @@ class DatabaseHandler(context: Context):SQLiteOpenHelper(context,DATABASE_NAME,n
         cursor.close()
         db.close()
         return records
-
     }
 
-
-
-
-
-    fun readData() :MutableList<User>{
-        var list: MutableList<User> = ArrayList()
-        val db = this.readableDatabase
-        val query = "Select * from " + TABLE_NAME
-        val result = db.rawQuery(query,null)
-
-        if (result.moveToFirst()){
-            do{
-                println("works")
-                var user = User()
-                user.date = result.getString(result.getColumnIndex(COL_DATE))
-                user.time = result.getString(result.getColumnIndex(COL_TIME))
-                user.money = result.getString(result.getColumnIndex(COL_MONEY)).toInt()
-                list.add(user)
-
-            }while(result.moveToNext())
+    fun deleteRecord(recordID : Int) : Boolean{
+        val qry = "Delete From $TABLE_NAME where $COL_ID = $recordID"
+        val db : SQLiteDatabase = this.writableDatabase
+        var result : Boolean = false
+        try{
+            val cursor = db.execSQL(qry)
+            result = true
+        } catch (e: Exception){
+            Log.e(ContentValues.TAG, "Error Deleting")
         }
-
-        result.close()
         db.close()
-
-        return list
+        return result
     }
 
-    fun updateDate(money: Int){
-        val db = this.writableDatabase
-        //db.update()
-    }
+
+
+
 }
