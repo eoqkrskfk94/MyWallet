@@ -6,47 +6,186 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.MainFragment">
 
-    <ImageButton
-        android:id="@+id/btn10000"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+    <LinearLayout
+        android:id="@+id/date_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:background="@null"
-        android:src="?android:attr/textSelectHandle" />
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="horizontal">
 
-    <ImageButton
-        android:id="@+id/btn1000"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_below="@id/btn10000"
-        android:layout_centerHorizontal="true"
-        android:background="@null"
-        android:src="?android:attr/textSelectHandle" />
+        <TextView
+            android:id="@+id/text_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:drawableEnd="@drawable/ic_arrow"
+            android:text="DATE"
+            android:textSize="25sp" />
 
-    <ImageButton
-        android:id="@+id/btn100"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_below="@id/btn1000"
-        android:layout_centerHorizontal="true"
-        android:background="@null"
-        android:src="?android:attr/textSelectHandle" />
+        <TextView
+            android:id="@+id/text_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:drawableEnd="@drawable/ic_arrow"
+            android:text="TIME"
+            android:textSize="25sp" />
+    </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/btn_save"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_below="@id/btn100"
+    <LinearLayout
+        android:id="@+id/layout10000"
+        android:layout_below="@id/date_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:background="@null"
-        android:src="?android:attr/textSelectHandle" />
+        android:layout_marginBottom="30dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/left10000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="50dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:src="@drawable/left_click" />
+
+        <ImageView
+            android:id="@+id/image10000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/money10000" />
+
+        <ImageButton
+            android:id="@+id/right10000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="50dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:src="@drawable/right_click" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout1000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout10000"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/left1000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="50dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:src="@drawable/left_click" />
+
+        <ImageView
+            android:id="@+id/image1000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/money1000" />
+
+        <ImageButton
+            android:id="@+id/right1000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="50dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:src="@drawable/right_click" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout100"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout1000"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/left100"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="50dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:src="@drawable/left_click" />
+
+        <ImageView
+            android:id="@+id/image100"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="38dp"
+            android:layout_marginRight="38dp"
+            android:layout_weight="1"
+            android:src="@drawable/money100" />
+
+        <ImageButton
+            android:id="@+id/right100"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="50dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:src="@drawable/right_click" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/currentMoney"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:background="@null"
+            android:src="@drawable/save_money" />
+
+        <ImageButton
+            android:id="@+id/btn_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:src="@drawable/delete_money" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/currentMoney"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btn_save"
+        android:layout_below="@id/layout100"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
         android:text="TextView"
         android:textSize="24sp" />
+
 </RelativeLayout>
