@@ -41,9 +41,11 @@ class MainFragment : Fragment(){
         var buttonSave = view.findViewById<ImageButton>(R.id.btn_save)
         var buttonDelete = view.findViewById<ImageButton>(R.id.btn_delete)
         var total = view.findViewById<TextView>(R.id.currentMoney)
-        var now_date = view.findViewById<TextView>(R.id.date_text)
-        var now_time = view.findViewById<TextView>(R.id.time_text)
+        var now_date = view.findViewById<Button>(R.id.textdate)
+        var now_time = view.findViewById<Button>(R.id.texttime)
         var db = DatabaseHandler(context)
+
+
 
         val now = LocalDateTime.now()
         var date = DateTimeFormatter.ofPattern("yyyy-MM-dd")
@@ -51,8 +53,8 @@ class MainFragment : Fragment(){
         val dateString: String = date.format(now)
         val timeString: String = time.format(now)
 
-        now_date.text = "123"
-        //now_time.text = "32323"
+        now_date.text = "$dateString"
+        now_time.text = "$timeString"
 
         total.text = "₩$money"
 

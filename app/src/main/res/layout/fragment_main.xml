@@ -15,25 +15,25 @@
         android:layout_marginBottom="30dp"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/text_date"
+        <Button
+            android:id="@+id/textdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="30dp"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="30dp"
             android:drawableEnd="@drawable/ic_arrow"
             android:text="DATE"
+            android:background="@android:color/transparent"
             android:textSize="25sp" />
 
-        <TextView
-            android:id="@+id/text_time"
+        <Button
+            android:id="@+id/texttime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
             android:drawableEnd="@drawable/ic_arrow"
+            android:layout_centerHorizontal="true"
             android:text="TIME"
+            android:background="@android:color/transparent"
             android:textSize="25sp" />
     </LinearLayout>
 
