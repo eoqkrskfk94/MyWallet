@@ -87,6 +87,27 @@ class DatabaseHandler(context: Context):SQLiteOpenHelper(context,DATABASE_NAME,n
         return result
     }
 
+//    fun updateRecord(id : Int, date : String, time : String, money : Int) : Boolean {
+//        val db = this.writableDatabase
+//        val contentValues = ContentValues()
+//        var result : Boolean = false
+//
+//        contentValues.put(COL_ID, id)
+//        contentValues.put(COL_DATE, date)
+//        contentValues.put(COL_TIME, time)
+//        contentValues.put(COL_MONEY, money)
+//
+//        try{
+//            db.update(TABLE_NAME, contentValues, "$COL_ID = $id", )
+//            result = true
+//
+//        }catch (e : Exception){
+//            Log.e(ContentValues.TAG, "Error Updating")
+//            result = false
+//        }
+//        return result
+//    }
+
 
 
 

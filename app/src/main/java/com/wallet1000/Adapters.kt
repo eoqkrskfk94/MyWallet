@@ -6,9 +6,9 @@ import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.wallet1000.Fragments.MainFragment
 import com.wallet1000.Fragments.ProfileFragment
 import kotlinx.android.synthetic.main.records.view.*
 
@@ -59,6 +59,28 @@ class UserAdapter(context: Context, val record : ArrayList<User>) : RecyclerView
                 .setNegativeButton("No", DialogInterface.OnClickListener{dialog, which -> })
                 .show()
         }
+
+//        holder.buttonUpdate.setOnClickListener {
+//            val inflater = LayoutInflater.from(context)
+//            val view = inflater.inflate(R.layout.lo_record_update, null)
+//
+//            val txtMoney : TextView = view.findViewById(R.id.editMoney)
+//            val txtDate : TextView = view.findViewById(R.id.text_date)
+//            val txtTime : TextView = view.findViewById(R.id.text_time)
+//
+//            txtDate.text = user.date
+//            txtTime.text = user.time
+//            txtMoney.text = user.money.toString()
+//
+//            val builder = AlertDialog.Builder(context)
+//                .setTitle("Update record info.")
+//                .setView(view)
+//                .setPositiveButton("Update", DialogInterface.OnClickListener{dialog, which ->
+//                    val isUpdate:Boolean = ProfileFragment.databaseHandler.updateRecord(
+//                        user.id,
+//                    )
+//                })
+//        }
     }
 
 }
