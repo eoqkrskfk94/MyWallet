@@ -14,6 +14,14 @@ __"정만 간단한 인터페이스, 쉬운 사용법, 많지 않은 버튼!"__
 
 <p align="center"> <img width="622" alt="선행" src="https://user-images.githubusercontent.com/37679062/77749427-59dec180-7065-11ea-8d4f-9aad51e920a5.JPG"> </p>
 
+### 데이터베이스
+
+해당 데이터베이스는 이 어플이 실행되고있는 스마트폰의 저장공간에 저장이된다. 즉 다른 스마트폰에서는 같은 기록을 볼 수 없으면 해당 데이터베이스 파일은 SQLite database를 사용하며 스마트폰의 저장공간에서 확인할 수 있다. 
+
+<p align="center"> <img width="622" alt="선행" src="https://user-images.githubusercontent.com/37679062/77749877-251f3a00-7066-11ea-9d89-2bd3a8feff24.JPG"> </p>
+<p align="center"> 해당 스크린샷은 실제 어플로 기록을 저장후 데이터베이스 파일을 받아와 database browser 프로그램으로 열어 본것이다.</p> 
+
+
 ### 스크린샷
 
 <p align="center"> <img width="622" alt="선행" src="https://user-images.githubusercontent.com/37679062/77749625-af1ad300-7065-11ea-95c0-b297c4c11b43.JPG"> </p>
