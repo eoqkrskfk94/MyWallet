@@ -21,7 +21,7 @@ class UserAdapter(context: Context, val record : ArrayList<User>) : RecyclerView
         val txtDate = itemView.date_text
         val txtTime = itemView.time_text
         val txtMoney = itemView.money_text
-        val buttonUpdate = itemView.btnUpdate
+        //val buttonUpdate = itemView.btnUpdate
         val buttonDelete = itemView.btnDelete
     }
 
@@ -39,7 +39,7 @@ class UserAdapter(context: Context, val record : ArrayList<User>) : RecyclerView
         val user : User = record[position]
         holder.txtDate.text = user.date
         holder.txtTime.text = user.time
-        holder.txtMoney.text = user.money.toString()
+        holder.txtMoney.text = "₩ " + user.money.toString()
 
         holder.buttonDelete.setOnClickListener{
             var alertDialog = AlertDialog.Builder(context)
