@@ -73,7 +73,7 @@ class MainFragment : Fragment(){
                 val selectedTime = Calendar.getInstance()
                 selectedTime.set(Calendar.HOUR_OF_DAY,hourOfDay)
                 selectedTime.set(Calendar.MINUTE,min)
-                val format2 = SimpleDateFormat("HH:MM")
+                val format2 = SimpleDateFormat("HH:mm")
                 val createdTime = format2.format(selectedTime.time)
                 timeString = createdTime
                 texttime.text = "$timeString"
@@ -86,7 +86,7 @@ class MainFragment : Fragment(){
         refreshButton.setOnClickListener{
             now = LocalDateTime.now()
             date = DateTimeFormatter.ofPattern("yyyy-MM-dd")
-            time = DateTimeFormatter.ofPattern("HH:MM")
+            time = DateTimeFormatter.ofPattern("HH:mm")
             dateString = date.format(now)
             timeString = time.format(now)
 
