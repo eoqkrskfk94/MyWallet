@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.wallet1000.Fragments.ProfileFragment
+import kotlinx.android.synthetic.main.lo_record_update.view.*
 import kotlinx.android.synthetic.main.records.view.*
 
 
@@ -21,7 +22,7 @@ class UserAdapter(context: Context, val record : ArrayList<User>) : RecyclerView
         val txtDate = itemView.date_text
         val txtTime = itemView.time_text
         val txtMoney = itemView.money_text
-        //val buttonUpdate = itemView.btnUpdate
+        val buttonUpdate = itemView.btnUpdate
         val buttonDelete = itemView.btnDelete
     }
 
@@ -60,27 +61,39 @@ class UserAdapter(context: Context, val record : ArrayList<User>) : RecyclerView
                 .show()
         }
 
-//        holder.buttonUpdate.setOnClickListener {
-//            val inflater = LayoutInflater.from(context)
-//            val view = inflater.inflate(R.layout.lo_record_update, null)
-//
-//            val txtMoney : TextView = view.findViewById(R.id.editMoney)
-//            val txtDate : TextView = view.findViewById(R.id.text_date)
-//            val txtTime : TextView = view.findViewById(R.id.text_time)
-//
-//            txtDate.text = user.date
-//            txtTime.text = user.time
-//            txtMoney.text = user.money.toString()
-//
-//            val builder = AlertDialog.Builder(context)
-//                .setTitle("Update record info.")
-//                .setView(view)
-//                .setPositiveButton("Update", DialogInterface.OnClickListener{dialog, which ->
-//                    val isUpdate:Boolean = ProfileFragment.databaseHandler.updateRecord(
-//                        user.id,
-//                    )
-//                })
-//        }
+        holder.buttonUpdate.setOnClickListener {
+            val inflater = LayoutInflater.from(context)
+            val view = inflater.inflate(R.layout.lo_record_update, null)
+
+            val txtMoney : TextView = view.findViewById(R.id.editMoney)
+            val txtDate : TextView = view.findViewById(R.id.text_date)
+            val txtTime : TextView = view.findViewById(R.id.text_time)
+
+            txtDate.text = user.date
+            txtTime.text = user.time
+            txtMoney.text = user.money.toString()
+
+            val builder = AlertDialog.Builder(context)
+                .setTitle("Update record info.")
+                .setView(view)
+                .setPositiveButton("Update", DialogInterface.OnClickListener{dialog, which ->
+                    user.date = txtDate.text.toString()
+                    user.time = txtTime.text.toString()
+                    user.money = txtMoney.text.toString().toInt()
+
+                    //System.out.println(user.date)
+                    //System.out.println(user.time)
+
+                    val isUpdate:Boolean = ProfileFragment.databaseHandler.updateRecord(user)
+                    if (isUpdate == true){
+                        record[position].money = view.editMoney.text.toString().toInt()
+                        notifyDataSetChanged()
+                        Toast.makeText(context, "Updated", Toast.LENGTH_SHORT).show()
+                    }
+                })
+                .setNegativeButton("Cancel", DialogInterface.OnClickListener{dialog, which ->})
+                .show()
+        }
     }
 
 }

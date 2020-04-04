@@ -18,14 +18,13 @@ val COL_MONEY = "money"
 
 
 class DatabaseHandler(context: Context):SQLiteOpenHelper(context,DATABASE_NAME,null,1) {
-    override fun onCreate(db: SQLiteDatabase?) {
 
+    override fun onCreate(db: SQLiteDatabase?) {
         val createTable = "CREATE TABLE " + TABLE_NAME + " (" +
                 COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COL_DATE + " VARCHAR(256)," +
                 COL_TIME + " VARCHAR(256)," +
                 COL_MONEY + " INTEGER)"
-
 
         db?.execSQL(createTable)
 
@@ -37,12 +36,12 @@ class DatabaseHandler(context: Context):SQLiteOpenHelper(context,DATABASE_NAME,n
 
     fun insertData(user : User){
         val db = this.writableDatabase
-        var cv = ContentValues()
-        cv.put(COL_DATE,user.date)
-        cv.put(COL_TIME,user.time)
-        cv.put(COL_MONEY,user.money)
-        var result = db.insert(TABLE_NAME,null,cv)
-
+        var values = ContentValues()
+        values.put(COL_DATE,user.date)
+        values.put(COL_TIME,user.time)
+        values.put(COL_MONEY,user.money)
+        var result = db.insert(TABLE_NAME,null,values)
+        db.close()
     }
 
 
@@ -87,26 +86,31 @@ class DatabaseHandler(context: Context):SQLiteOpenHelper(context,DATABASE_NAME,n
         return result
     }
 
-//    fun updateRecord(id : Int, date : String, time : String, money : Int) : Boolean {
-//        val db = this.writableDatabase
-//        val contentValues = ContentValues()
-//        var result : Boolean = false
-//
-//        contentValues.put(COL_ID, id)
-//        contentValues.put(COL_DATE, date)
-//        contentValues.put(COL_TIME, time)
-//        contentValues.put(COL_MONEY, money)
-//
-//        try{
-//            db.update(TABLE_NAME, contentValues, "$COL_ID = $id", )
-//            result = true
-//
-//        }catch (e : Exception){
-//            Log.e(ContentValues.TAG, "Error Updating")
-//            result = false
-//        }
-//        return result
-//    }
+    fun updateRecord(user : User) : Boolean{
+        val db : SQLiteDatabase = this.writableDatabase
+        val ID = user.id
+        val DATE = user.date
+        val TIME = user.time
+        val MONEY = user.money
+
+
+        val qry = "UPDATE $TABLE_NAME " +
+                "SET $COL_DATE = '$DATE', $COL_TIME = '$TIME', $COL_MONEY = $MONEY " +
+                "WHERE $COL_ID = $ID"
+
+        System.out.println(user.money)
+
+        var result : Boolean = false
+        try{
+            val cursor = db.execSQL(qry)
+            result = true
+        } catch (e: Exception){
+            Log.e(ContentValues.TAG, "Error Updating")
+        }
+
+
+        return result
+    }
 
 
 
