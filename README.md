@@ -24,6 +24,6 @@ __"정만 간단한 인터페이스, 쉬운 사용법, 많지 않은 버튼!"__
 
 ### 스크린샷
 
-<p align="center"> <img width="622" alt="선행" src="https://user-images.githubusercontent.com/37679062/77749625-af1ad300-7065-11ea-95c0-b297c4c11b43.JPG"> </p>
+<p align="center"> <img width="811" alt="스크린샷 2020-04-05 오후 3 12 07" src="https://user-images.githubusercontent.com/37679062/78468162-e10bf380-774f-11ea-87cb-e47918f2e4c5.png"> </p>
 
 
